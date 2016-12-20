@@ -5,16 +5,21 @@
  */
 package gui.artifacts;
 
+import com.googlecode.lanterna.TerminalPosition;
+
 /**
  *
  * @author Trainerpl022
  */
-public class Misc {
+public class Misc extends MapObject {
     int value,
           gold;
     String desc;
+    
+    
 
-    public Misc(int value, int gold, String desc) {
+    public Misc(TerminalPosition pos, int value, int gold, String desc) {
+        super(pos, true, true);
         this.value = value;
         this.gold = gold;
         this.desc = desc;

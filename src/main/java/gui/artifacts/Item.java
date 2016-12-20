@@ -13,7 +13,7 @@ public class Item extends Misc {
     int type;
      
     public Item(int value, int gold, String desc, int type) {
-        super(value, gold, desc);
+        super(null, value, gold, desc);
     }
 
     public int getType() {

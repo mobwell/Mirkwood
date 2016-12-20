@@ -9,8 +9,8 @@ package gui.artifacts;
  *
  * @author Trainerpl022
  */
-public class Shield extends Misc {    
+public class Shield {    
     public Shield(int value, int gold, String desc) {
-        super(value, gold, desc);
+     //   super(value, gold, desc);
     }    
 }

@@ -7,6 +7,7 @@ package gui.artifacts;
 
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
+import java.util.Random;
 
 /**
  *
@@ -19,6 +20,7 @@ public abstract class MapObject {
     char symbol;
     TextColor foregroundColor;
     TextColor backgroundColor;
+    Random _rand;
 
     public MapObject(TerminalPosition position, boolean free, boolean visible, char symbol, TextColor foregroundColor, TextColor backgroundColor) {
         this.position = position;
@@ -27,6 +29,8 @@ public abstract class MapObject {
         this.symbol = symbol;
         this.foregroundColor = foregroundColor;
         this.backgroundColor = backgroundColor;
+        
+        _rand = new Random();
     }
 
     public MapObject(TerminalPosition position, boolean free, boolean visible) {

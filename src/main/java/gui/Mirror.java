@@ -23,7 +23,9 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import gui.artifacts.MapObject;
+import gui.artifacts.Misc;
 import gui.artifacts.Moeda;
+import gui.artifacts.Weapon;
 import java.util.ArrayList;
 
 import script.Characters;
@@ -98,6 +100,11 @@ public class Mirror {
 			public void onUnhandledInput(Window arg0, KeyStroke keyStroke, AtomicBoolean arg2) {
 				// TODO Auto-generated method stub
 				MapObject mo = map.updatePlayer(keyStroke);
+                                if (mo instanceof Misc || mo instanceof Moeda) {
+                                                                        map._layerItem.removeArtifact(mo);
+                                    map.refreshLand();
+                                    pStatus.invalidate();
+                                }
 				
 			//	if(keyStroke.getCharacter() == 'f') {
                                 if(mo instanceof Foe) {
@@ -134,17 +141,11 @@ public class Mirror {
 					
 				} else if (mo instanceof Moeda) {
                                 //    System.out.println(((Moeda) mo).getValor());
-                                    // falta encapsular)
-                                    map._layerItem.removeArtifact(mo);
-                                    map.refreshLand();
-                                    pStatus.invalidate();
-                                    try {
-                                    hero.getInventory().addCoin((Moeda) mo);
-                                    }
-                                    catch(Exception e) {
-                                        System.out.println(e.getMessage());
-                                    }
-                                //    System.out.println(hero.getInventory().getGoldValue());
+                                    // todo: falta encapsular)
+
+                                    hero.getInventory().addCoin((Moeda) mo);                                                                                                         
+                                }else if (mo instanceof Weapon) {
+                                    // TODO: add weapon
                                 }else if (keyStroke.getCharacter() == 'm') {
 					if (ap.isPlaying())
 						ap.stop();

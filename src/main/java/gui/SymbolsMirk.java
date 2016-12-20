@@ -7,4 +7,5 @@ public class SymbolsMirk {
 	public static final char HERO = 'φ';
 	public static final char FOE = 'Θ';
         public static final char COIN = 'º';
+        public static final char[] WEAPON = {'×', '›', '†', 'ƒ'};
 }
